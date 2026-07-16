@@ -1,8 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import heroAgbada from "@/assets/hero-agbada.jpg";
 import monarchAgbada from "@/assets/monarch-agbada.jpg";
 import oloriSet from "@/assets/olori-set.jpg";
 import obaKaftan from "@/assets/oba-kaftan.jpg";
+import embroideryDetail from "@/assets/embroidery-detail.jpg";
+import atelierHands from "@/assets/atelier-hands.jpg";
+import brideCoral from "@/assets/bride-coral.jpg";
+import coupleRoyal from "@/assets/couple-royal.jpg";
+import fabrics from "@/assets/fabrics.jpg";
+import { TIKTOK_URL } from "@/components/SiteHeader";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -10,22 +17,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-royal-radial text-white font-sans overflow-x-hidden selection:bg-gold-glow/30">
-      {/* Nav */}
-      <nav className="fixed top-0 w-full z-50 px-6 md:px-10 py-5 flex justify-between items-center backdrop-blur-md bg-royal-bg/50 border-b border-white/5">
-        <div className="text-2xl font-display font-bold tracking-tight text-gold-glow italic">
-          Damas Couture
-        </div>
-        <div className="hidden md:flex gap-10 text-xs font-medium tracking-[0.25em] uppercase text-white/70">
-          <a href="#heritage" className="hover:text-gold-glow transition-colors">The Heritage</a>
-          <a href="#collections" className="hover:text-gold-glow transition-colors">Collections</a>
-          <a href="#bespoke" className="hover:text-gold-glow transition-colors">Bespoke</a>
-        </div>
-        <a href="#bespoke" className="px-6 py-2 rounded-full border border-gold-glow/50 text-gold-glow text-[10px] font-bold tracking-[0.25em] uppercase hover:bg-gold-glow hover:text-royal-bg transition-all duration-500">
-          Inquire
-        </a>
-      </nav>
-
+    <div>
       {/* Hero */}
       <section className="relative pt-36 md:pt-40 pb-24 px-6 md:px-10 overflow-hidden">
         <div className="pointer-events-none absolute -top-32 -left-32 size-[520px] rounded-full bg-gold-glow/10 blur-[120px]" />
@@ -44,12 +36,12 @@ function Index() {
               native attire for the modern visionary who demands distinction.
             </p>
             <div className="flex flex-wrap gap-5">
-              <a href="#bespoke" className="px-10 py-5 bg-gold-glow text-royal-bg font-bold rounded-xl animate-glow-pulse transition-transform hover:scale-105 active:scale-95">
+              <Link to="/contact" className="px-10 py-5 bg-gold-glow text-royal-bg font-bold rounded-xl animate-glow-pulse transition-transform hover:scale-105 active:scale-95">
                 Start Your Fitting
-              </a>
-              <a href="#collections" className="px-10 py-5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all">
+              </Link>
+              <Link to="/lookbook" className="px-10 py-5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all">
                 View Lookbook
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -75,6 +67,23 @@ function Index() {
         </div>
       </section>
 
+      {/* Marquee */}
+      <div className="relative overflow-hidden py-6 border-y border-white/5 bg-white/[0.02]">
+        <div className="flex gap-16 whitespace-nowrap animate-marquee text-2xl md:text-4xl font-display italic text-gold-glow/70">
+          {Array.from({ length: 2 }).map((_, i) => (
+            <div key={i} className="flex gap-16 items-center">
+              <span>Agbada</span><span className="text-white/20">✦</span>
+              <span>Iro & Buba</span><span className="text-white/20">✦</span>
+              <span>Gele</span><span className="text-white/20">✦</span>
+              <span>Aso-Oke</span><span className="text-white/20">✦</span>
+              <span>Fila</span><span className="text-white/20">✦</span>
+              <span>Kaftan</span><span className="text-white/20">✦</span>
+              <span>Kembe</span><span className="text-white/20">✦</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Collections */}
       <section id="collections" className="py-24 px-6 md:px-10">
         <div className="max-w-7xl mx-auto">
@@ -84,9 +93,9 @@ function Index() {
               <h2 className="text-4xl md:text-5xl font-display mt-4">Signature Cuts</h2>
               <p className="text-white/40 mt-3">Explore our hand-sewn native masterpieces.</p>
             </div>
-            <div className="text-gold-glow font-bold text-xs tracking-[0.3em] uppercase border-b border-gold-glow/30 pb-1 cursor-pointer hover:border-gold-glow transition-all">
+            <Link to="/collections" className="text-gold-glow font-bold text-xs tracking-[0.3em] uppercase border-b border-gold-glow/30 pb-1 hover:border-gold-glow transition-all">
               View All Series
-            </div>
+            </Link>
           </div>
 
           <div className="grid md:grid-cols-3 gap-10">
@@ -143,6 +152,39 @@ function Index() {
         </div>
       </section>
 
+      {/* Process teaser */}
+      <section className="py-24 px-6 md:px-10">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+          <div className="relative order-2 md:order-1">
+            <div className="absolute -inset-6 bg-gold-glow/10 blur-3xl rounded-full" />
+            <img src={atelierHands} width={1024} height={1024} loading="lazy" alt="Master tailor hand-stitching gold embroidery" className="relative rounded-3xl w-full aspect-square object-cover ring-1 ring-white/10" />
+          </div>
+          <div className="order-1 md:order-2">
+            <span className="text-[10px] tracking-[0.35em] uppercase text-gold-glow font-bold">The Process</span>
+            <h2 className="font-display text-4xl md:text-5xl mt-4 mb-8">Four weeks from <span className="italic text-gold-glow">thread to throne</span>.</h2>
+            <div className="space-y-6">
+              {[
+                { n: "01", t: "Consultation", d: "A private conversation to understand the occasion, silhouette and story." },
+                { n: "02", t: "Fabric & Pattern", d: "Curated aso-oke, silks and lace. Signature patterns drawn to your taste." },
+                { n: "03", t: "Hand Embroidery", d: "Between 80 and 240 hours of gold-thread work per garment." },
+                { n: "04", t: "Final Fitting", d: "Delivered in a bespoke Damas trunk with a lifetime alteration promise." },
+              ].map((s) => (
+                <div key={s.n} className="glass-panel rounded-2xl p-5 flex gap-5 items-start hover:-translate-y-0.5 hover:border-gold-glow/40 transition-all">
+                  <span className="font-display italic text-gold-glow text-2xl">{s.n}</span>
+                  <div>
+                    <div className="font-display text-lg">{s.t}</div>
+                    <p className="text-sm text-white/50 mt-1 leading-relaxed">{s.d}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <Link to="/atelier" className="inline-block mt-8 text-gold-glow text-xs tracking-[0.3em] uppercase border-b border-gold-glow/30 pb-1 hover:border-gold-glow">
+              Inside the Atelier →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Heritage / Craftsmanship */}
       <section id="heritage" className="py-28 px-6 md:px-10 relative">
         <div className="max-w-6xl mx-auto glass-panel rounded-[2rem] p-10 md:p-16 grid md:grid-cols-2 gap-12 items-center">
@@ -175,13 +217,65 @@ function Index() {
           <div className="relative">
             <div className="absolute inset-0 bg-gold-glow/10 blur-3xl rounded-full" />
             <img
-              src={monarchAgbada}
-              width={800}
-              height={1000}
+              src={embroideryDetail}
+              width={1024}
+              height={1024}
               loading="lazy"
-              alt="Detail of gold thread embroidery on indigo aso-oke"
-              className="relative rounded-2xl w-full aspect-[4/5] object-cover ring-1 ring-white/10 shadow-2xl"
+              alt="Close-up of gold thread embroidery on indigo aso-oke"
+              className="relative rounded-2xl w-full aspect-square object-cover ring-1 ring-white/10 shadow-2xl"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-24 px-6 md:px-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="text-[10px] tracking-[0.35em] uppercase text-gold-glow font-bold">Voices</span>
+            <h2 className="font-display text-4xl md:text-5xl mt-4">Worn by tastemakers.</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { q: "The most exquisite agbada I've ever worn. Every eye in the room turned.", n: "Chief A. Adebayo", r: "Lagos" },
+              { q: "Damas turned my wedding into a moving painting. Pure poetry in thread.", n: "Adaeze O.", r: "London" },
+              { q: "Modern, ancestral, unforgettable. My guests still talk about the gele.", n: "Yewande B.", r: "Paris" },
+            ].map((t) => (
+              <figure key={t.n} className="neumorph-card p-8">
+                <div className="text-gold-glow text-3xl font-display leading-none mb-4">"</div>
+                <blockquote className="text-white/80 leading-relaxed">{t.q}</blockquote>
+                <figcaption className="mt-6 pt-6 border-t border-white/5 text-sm">
+                  <div className="text-white">{t.n}</div>
+                  <div className="text-[10px] tracking-[0.3em] uppercase text-white/40 mt-1">{t.r}</div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TikTok highlight */}
+      <section className="py-20 px-6 md:px-10">
+        <div className="max-w-6xl mx-auto glass-panel rounded-[2rem] p-8 md:p-14 grid md:grid-cols-[1.1fr_1fr] gap-10 items-center overflow-hidden">
+          <div>
+            <span className="text-[10px] tracking-[0.35em] uppercase text-gold-glow font-bold">On TikTok</span>
+            <h2 className="font-display text-3xl md:text-5xl mt-4 mb-6 leading-tight">Watch the stitches come alive.</h2>
+            <p className="text-white/60 leading-relaxed max-w-md">
+              Behind-the-scenes fittings, gele tutorials, embroidery close-ups and
+              runway reveals — follow <span className="text-gold-glow">@damas_couture27</span> for the daily atelier diary.
+            </p>
+            <a href={TIKTOK_URL} target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gold-glow text-royal-bg font-bold text-xs tracking-[0.25em] uppercase hover:scale-105 transition-transform">
+              Follow on TikTok
+              <span>→</span>
+            </a>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {[brideCoral, coupleRoyal, fabrics, embroideryDetail].map((img, i) => (
+              <div key={i} className={`relative overflow-hidden rounded-2xl aspect-[3/4] ${i % 2 ? "translate-y-6" : ""}`}>
+                <img src={img} width={512} height={680} loading="lazy" alt="TikTok reel preview" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-royal-bg/70 to-transparent" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -211,19 +305,6 @@ function Index() {
           </div>
         </div>
       </section>
-
-      <footer className="py-12 border-t border-white/5 px-6 md:px-10">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-lg font-display text-gold-glow/70 italic">Damas Couture</div>
-          <div className="text-[10px] tracking-[0.35em] uppercase text-white/30 font-medium">
-            © 2026 Lagos • London • Paris
-          </div>
-          <div className="flex gap-8 text-[10px] font-bold uppercase tracking-[0.3em] text-white/50">
-            <a href="#" className="hover:text-gold-glow transition-colors">Instagram</a>
-            <a href="#" className="hover:text-gold-glow transition-colors">Showroom</a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
