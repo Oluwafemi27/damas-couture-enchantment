@@ -63,9 +63,9 @@ function ContactPage() {
         </form>
 
         <aside className="space-y-6">
-          <InfoCard title="Studio Visit" body={"Adeola Odeku Street\nVictoria Island, Lagos"} action={{ label: "Book Appointment", href: "mailto:atelier@damascouture.com" }} />
+          <InfoCard title="Studio Visit" body={"Adeola Odeku Street\nVictoria Island, Lagos"} action={{ label: "Book Appointment", href: "mailto:damascouture@gmail.com" }} />
+          <InfoCard title="Email" body={"damascouture@gmail.com"} action={{ label: "Write Us", href: "mailto:damascouture@gmail.com" }} />
           <InfoCard title="WhatsApp Stylist" body={`${WHATSAPP_DISPLAY}\nAvailable Mon–Sat\n9am–7pm WAT`} action={{ label: "Chat Now", href: WHATSAPP_URL }} />
-          <InfoCard title="Email" body={"atelier@damascouture.com\npress@damascouture.com"} action={{ label: "Write Us", href: "mailto:atelier@damascouture.com" }} />
           <InfoCard title="On TikTok" body={"@damas_couture27\nWeekly reels & try-ons"} action={{ label: "Follow", href: TIKTOK_URL }} />
         </aside>
       </section>

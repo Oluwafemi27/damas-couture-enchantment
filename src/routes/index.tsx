@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
+import heroAgbada from "@/assets/hero-agbada.jpg";
 import founderDaniel from "@/assets/founder-daniel.jpg";
 import monarchAgbada from "@/assets/monarch-agbada.jpg";
 import oloriSet from "@/assets/olori-set.jpg";
@@ -7,9 +8,11 @@ import obaKaftan from "@/assets/oba-kaftan.jpg";
 import embroideryDetail from "@/assets/embroidery-detail.jpg";
 import atelierHands from "@/assets/atelier-hands.jpg";
 import brideCoral from "@/assets/bride-coral.jpg";
+import groomEmerald from "@/assets/groom-emerald.jpg";
 import coupleRoyal from "@/assets/couple-royal.jpg";
 import fabrics from "@/assets/fabrics.jpg";
 import { TIKTOK_URL } from "@/components/SiteHeader";
+import { Slideshow } from "@/components/Slideshow";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -65,6 +68,19 @@ function Index() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Slideshow */}
+      <section className="pb-24">
+        <Slideshow
+          slides={[
+            { src: heroAgbada, alt: "Model wearing an indigo and gold hand-embroidered Yoruba Agbada", eyebrow: "Signature", title: "The Agbada Reimagined" },
+            { src: monarchAgbada, alt: "Monarch Agbada with triple-layered hand embroidery", eyebrow: "Ceremonial", title: "The Monarch Agbada" },
+            { src: brideCoral, alt: "Bride in coral silk iro and buba with sculpted gele", eyebrow: "Bridal", title: "Coral Bride Edition" },
+            { src: groomEmerald, alt: "Groom in deep emerald aso-oke with white fila", eyebrow: "Coronation", title: "Emerald Oba Agbada" },
+            { src: coupleRoyal, alt: "Couple in matching cobalt blue aso-ebi wedding attire", eyebrow: "Couples", title: "Royal Aso-Ebi Duo" },
+          ]}
+        />
       </section>
 
       {/* Marquee */}
@@ -321,7 +337,7 @@ function Index() {
                 private home measurement service.
               </p>
               <div className="relative inline-flex flex-col sm:flex-row gap-4">
-                <a href="mailto:atelier@damascouture.com" className="px-12 py-5 bg-white text-royal-bg font-bold rounded-full hover:scale-105 transition-transform">
+                <a href="mailto:damascouture@gmail.com" className="px-12 py-5 bg-white text-royal-bg font-bold rounded-full hover:scale-105 transition-transform">
                   Book Studio Visit
                 </a>
                 <a href="https://wa.me/2340000000000" className="px-12 py-5 border border-white/20 rounded-full hover:bg-white/5 transition-colors">

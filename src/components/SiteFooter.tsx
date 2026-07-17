@@ -38,7 +38,7 @@ export function SiteFooter() {
           <div className="text-[10px] tracking-[0.35em] uppercase text-gold-glow font-bold mb-4">Studio</div>
           <ul className="space-y-3 text-sm text-white/60">
             <li>Victoria Island, Lagos</li>
-            <li><a href="mailto:atelier@damascouture.com" className="hover:text-gold-glow">atelier@damascouture.com</a></li>
+            <li><a href="mailto:damascouture@gmail.com" className="hover:text-gold-glow">damascouture@gmail.com</a></li>
             <li><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="hover:text-gold-glow">WhatsApp: {WHATSAPP_DISPLAY}</a></li>
           </ul>
         </div>
