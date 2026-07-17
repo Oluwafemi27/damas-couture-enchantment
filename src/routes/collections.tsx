@@ -5,6 +5,7 @@ import obaKaftan from "@/assets/oba-kaftan.jpg";
 import brideCoral from "@/assets/bride-coral.jpg";
 import groomEmerald from "@/assets/groom-emerald.jpg";
 import coupleRoyal from "@/assets/couple-royal.jpg";
+import { ModelViewer } from "@/components/ModelViewer";
 
 export const Route = createFileRoute("/collections")({
   head: () => ({
@@ -28,6 +29,30 @@ const items = [
 ];
 
 const filters = ["All", "Men", "Women", "Bridal", "Couples"];
+
+const models3d = [
+  {
+    src: "/models/agbada-cloth.glb",
+    alt: "3D model of a hand-embroidered Yoruba agbada cloth",
+    title: "The Monarch Agbada — 3D",
+    cat: "Men • Ceremonial • Interactive",
+    desc: "Rotate, zoom and inspect every fold of the embroidery before you commission it.",
+  },
+  {
+    src: "/models/agbada-cloth-model.glb",
+    alt: "3D model of an agbada garment on a form",
+    title: "The Oba Kaftan — 3D",
+    cat: "Men • Everyday Regal • Interactive",
+    desc: "See the drape and structure of the silhouette from every angle, in real time.",
+  },
+  {
+    src: "/models/aso-oke-wedding-dress.glb",
+    alt: "3D model of an aso-oke wedding dress",
+    title: "Coral Bride Edition — 3D",
+    cat: "Bridal • Traditional • Interactive",
+    desc: "Explore the coral silk iro & buba silhouette and gold beadwork in fully rotatable 3D.",
+  },
+];
 
 function CollectionsPage() {
   return (
@@ -72,6 +97,25 @@ function CollectionsPage() {
             </div>
           </article>
         ))}
+      </section>
+
+      {/* 3D Collection */}
+      <section className="max-w-7xl mx-auto mt-28">
+        <div className="text-center mb-14">
+          <span className="text-[10px] tracking-[0.35em] uppercase text-gold-glow font-bold">New · Interactive</span>
+          <h2 className="font-display text-4xl md:text-5xl mt-4">
+            Explore in <span className="italic text-gold-glow">3D</span>
+          </h2>
+          <p className="max-w-xl mx-auto mt-3 text-white/60 leading-relaxed">
+            Drag to rotate, pinch or scroll to zoom. Feel the weight and drape
+            of the fabric before your first fitting.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {models3d.map((m) => (
+            <ModelViewer key={m.title} {...m} />
+          ))}
+        </div>
       </section>
 
       <section className="max-w-4xl mx-auto mt-24 text-center glass-panel rounded-[2rem] p-12">

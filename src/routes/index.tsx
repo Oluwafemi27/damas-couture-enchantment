@@ -152,6 +152,33 @@ function Index() {
         </div>
       </section>
 
+      {/* 3D teaser banner */}
+      <section className="px-6 md:px-10">
+        <Link
+          to="/collections"
+          className="group relative block max-w-7xl mx-auto overflow-hidden rounded-[2rem] glass-panel p-10 md:p-14 hover:border-gold-glow/40 transition-all"
+        >
+          <div className="pointer-events-none absolute -top-24 -right-24 size-[380px] rounded-full bg-gold-glow/10 blur-[100px] group-hover:bg-gold-glow/20 transition-all duration-700" />
+          <div className="relative flex flex-wrap items-center justify-between gap-8">
+            <div>
+              <span className="inline-block py-1 px-3 rounded-full bg-gold-glow/10 border border-gold-glow/25 text-gold-glow text-[10px] font-bold tracking-[0.3em] uppercase mb-5">
+                New
+              </span>
+              <h2 className="font-display text-3xl md:text-5xl leading-tight">
+                Now viewable in <span className="italic text-gold-glow animate-shimmer">full 3D</span>
+              </h2>
+              <p className="text-white/50 mt-3 max-w-md">
+                Rotate, zoom and inspect the weave before you ever step into the atelier.
+              </p>
+            </div>
+            <span className="shrink-0 inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gold-glow text-royal-bg font-bold text-xs tracking-[0.25em] uppercase group-hover:scale-105 transition-transform">
+              Explore the Collection
+              <span aria-hidden="true">→</span>
+            </span>
+          </div>
+        </Link>
+      </section>
+
       {/* Process teaser */}
       <section className="py-24 px-6 md:px-10">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">

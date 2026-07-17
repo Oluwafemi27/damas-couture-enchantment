@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import atelierHands from "@/assets/atelier-hands.jpg";
 import fabrics from "@/assets/fabrics.jpg";
 import embroideryDetail from "@/assets/embroidery-detail.jpg";
+import founderDaniel from "@/assets/founder-daniel.jpg";
 
 export const Route = createFileRoute("/atelier")({
   head: () => ({
@@ -87,6 +88,51 @@ function AtelierPage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Meet the Founder */}
+      <section className="max-w-6xl mx-auto mt-28 grid md:grid-cols-2 gap-12 items-center">
+        <div className="relative order-2 md:order-1">
+          <span className="text-[10px] tracking-[0.35em] uppercase text-gold-glow font-bold">Meet the Founder</span>
+          <h2 className="font-display text-4xl md:text-5xl mt-4 mb-6 leading-[1.05]">
+            The hands behind <span className="italic text-gold-glow">every stitch.</span>
+          </h2>
+          <p className="text-white/60 leading-relaxed mb-4">
+            Damas Couture was built on a simple belief: that native attire
+            should feel like an heirloom the moment it's worn, not years
+            later. Every commission that leaves Victoria Island is personally
+            reviewed before it reaches your fitting room.
+          </p>
+          <p className="text-white/60 leading-relaxed mb-8">
+            Follow the atelier's day-to-day craftsmanship on TikTok
+            <span className="text-gold-glow"> @damas_couture27</span>.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex px-8 py-4 rounded-full bg-gold-glow text-royal-bg font-bold text-xs tracking-[0.25em] uppercase hover:scale-105 transition-transform"
+          >
+            Work With Us
+          </Link>
+        </div>
+        <div className="relative order-1 md:order-2">
+          <div className="absolute -inset-6 bg-gold-glow/10 blur-3xl rounded-full" />
+          <div className="relative w-full max-w-sm mx-auto aspect-[4/5] animate-float-slow">
+            <img
+              src={founderDaniel}
+              width={1555}
+              height={2303}
+              alt="Founder of Damas Couture wearing a hand-woven green Aso-Oke agbada and fila cap"
+              className="relative z-10 w-full h-full object-cover rounded-3xl ring-1 ring-white/10 shadow-2xl"
+            />
+            <div className="absolute -left-6 -bottom-6 md:-left-10 md:-bottom-10 w-40 h-40 neumorph-card p-4 z-20">
+              <div className="w-full h-full border border-gold-glow/25 rounded-xl flex items-center justify-center text-center p-4">
+                <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-gold-glow leading-tight">
+                  Founder &amp; Lead Designer
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

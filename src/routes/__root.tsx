@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
+import { CursorGlow } from "../components/CursorGlow";
 
 function NotFoundComponent() {
   return (
@@ -126,10 +127,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-royal-radial text-white font-sans overflow-x-hidden selection:bg-gold-glow/30">
-        <SiteHeader />
-        <Outlet />
-        <SiteFooter />
+      <div className="relative min-h-screen bg-royal-radial text-white font-sans overflow-x-hidden selection:bg-gold-glow/30">
+        <CursorGlow />
+        <div className="relative z-10">
+          <SiteHeader />
+          <Outlet />
+          <SiteFooter />
+        </div>
       </div>
     </QueryClientProvider>
   );
