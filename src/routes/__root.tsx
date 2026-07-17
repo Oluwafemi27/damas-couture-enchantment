@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
 import { CursorGlow } from "../components/CursorGlow";
+import { FloatingWhatsApp } from "../components/FloatingWhatsApp";
 
 function NotFoundComponent() {
   return (
@@ -134,6 +135,7 @@ function RootComponent() {
           <Outlet />
           <SiteFooter />
         </div>
+        <FloatingWhatsApp />
       </div>
     </QueryClientProvider>
   );

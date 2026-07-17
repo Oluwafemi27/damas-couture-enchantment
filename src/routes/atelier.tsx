@@ -34,6 +34,25 @@ const services = [
   { t: "Global Delivery", d: "Insured shipping to London, Paris, New York, Dubai and Toronto." },
 ];
 
+const pricingTiers = [
+  {
+    name: "Entry-Level",
+    range: "₦10,000 – ₦15,000",
+    desc: "Sewing only. Basic styles with minimal embroidery.",
+  },
+  {
+    name: "Mid-Range",
+    range: "₦18,000 – ₦25,000",
+    desc: "Sewing only. Standard designs with moderate embroidery or monograms.",
+    featured: true,
+  },
+  {
+    name: "Premium (Complete Kaftan)",
+    range: "₦35,000 – ₦80,000+",
+    desc: "When supplying high-quality fabric, with heavy stonework or embroidery.",
+  },
+];
+
 function AtelierPage() {
   return (
     <main className="pt-32 pb-16 px-6 md:px-10">
@@ -176,6 +195,37 @@ function AtelierPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Pricing */}
+      <section className="max-w-6xl mx-auto mt-28">
+        <div className="text-center mb-14">
+          <span className="text-[10px] tracking-[0.35em] uppercase text-gold-glow font-bold">Pricing</span>
+          <h2 className="font-display text-4xl md:text-5xl mt-4">Sewing &amp; Styling Rates.</h2>
+          <p className="max-w-xl mx-auto mt-3 text-white/60 leading-relaxed">
+            Sewing-only rates below; ask your stylist for a full quote if you'd like us to source fabric, aso-oke or stonework.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {pricingTiers.map((tier) => (
+            <div
+              key={tier.name}
+              className={`neumorph-card p-8 flex flex-col ${tier.featured ? "ring-1 ring-gold-glow/40" : ""}`}
+            >
+              {tier.featured && (
+                <span className="self-start mb-4 px-3 py-1 rounded-full bg-gold-glow/15 border border-gold-glow/30 text-gold-glow text-[9px] font-bold tracking-[0.25em] uppercase">
+                  Most Bespoke
+                </span>
+              )}
+              <h3 className="font-display text-2xl mb-1">{tier.name}</h3>
+              <div className="text-gold-glow font-bold text-lg mb-4">{tier.range}</div>
+              <p className="text-sm text-white/60 leading-relaxed flex-1">{tier.desc}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-center text-xs text-white/40 mt-8">
+          Prices in Naira (₦). Sewing-only rates — fabric, aso-oke and stonework quoted separately.
+        </p>
       </section>
 
       {/* CTA */}

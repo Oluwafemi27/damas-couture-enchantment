@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { TIKTOK_URL } from "./SiteHeader";
+import { TIKTOK_URL, WHATSAPP_URL, WHATSAPP_DISPLAY } from "./SiteHeader";
 
 export function SiteFooter() {
   return (
@@ -27,6 +27,7 @@ export function SiteFooter() {
         <div>
           <div className="text-[10px] tracking-[0.35em] uppercase text-gold-glow font-bold mb-4">Explore</div>
           <ul className="space-y-3 text-sm text-white/60">
+            <li><Link to="/" className="hover:text-gold-glow">Home</Link></li>
             <li><Link to="/collections" className="hover:text-gold-glow">Collections</Link></li>
             <li><Link to="/atelier" className="hover:text-gold-glow">The Atelier</Link></li>
             <li><Link to="/lookbook" className="hover:text-gold-glow">Lookbook</Link></li>
@@ -38,7 +39,7 @@ export function SiteFooter() {
           <ul className="space-y-3 text-sm text-white/60">
             <li>Victoria Island, Lagos</li>
             <li><a href="mailto:atelier@damascouture.com" className="hover:text-gold-glow">atelier@damascouture.com</a></li>
-            <li><a href="https://wa.me/2340000000000" className="hover:text-gold-glow">WhatsApp Stylist</a></li>
+            <li><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="hover:text-gold-glow">WhatsApp: {WHATSAPP_DISPLAY}</a></li>
           </ul>
         </div>
       </div>

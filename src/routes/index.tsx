@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
-import heroAgbada from "@/assets/hero-agbada.jpg";
+import founderDaniel from "@/assets/founder-daniel.jpg";
 import monarchAgbada from "@/assets/monarch-agbada.jpg";
 import oloriSet from "@/assets/olori-set.jpg";
 import obaKaftan from "@/assets/oba-kaftan.jpg";
@@ -49,16 +49,16 @@ function Index() {
             <div className="relative w-full aspect-[4/5] max-w-md animate-float-slow">
               <div className="absolute -inset-4 bg-gold-glow/15 rounded-3xl blur-3xl" />
               <img
-                src={heroAgbada}
-                width={1024}
-                height={1280}
-                alt="Model wearing an indigo and gold hand-embroidered Yoruba Agbada"
+                src={founderDaniel}
+                width={1555}
+                height={2303}
+                alt="Founder of Damas Couture wearing a hand-woven green Aso-Oke agbada and fila cap"
                 className="relative z-10 w-full h-full object-cover rounded-3xl ring-1 ring-white/10 shadow-2xl"
               />
               <div className="absolute -right-6 -bottom-6 md:-right-10 md:-bottom-10 w-44 h-44 neumorph-card p-4 animate-slide-in-right z-20">
                 <div className="w-full h-full border border-gold-glow/25 rounded-xl flex items-center justify-center text-center p-4">
                   <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-gold-glow leading-tight">
-                    100% Authentic Aso&nbsp;Oke
+                    Founder &amp; Lead Designer
                   </p>
                 </div>
               </div>
