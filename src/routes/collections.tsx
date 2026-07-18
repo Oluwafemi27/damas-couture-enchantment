@@ -1,11 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import monarchAgbada from "@/assets/monarch-agbada.jpg";
-import oloriSet from "@/assets/olori-set.jpg";
-import obaKaftan from "@/assets/oba-kaftan.jpg";
-import brideCoral from "@/assets/bride-coral.jpg";
-import groomEmerald from "@/assets/groom-emerald.jpg";
-import coupleRoyal from "@/assets/couple-royal.jpg";
 import { ModelViewer } from "@/components/ModelViewer";
+import { collectionItems, collectionFilters, models3d } from "@/data/content";
 
 export const Route = createFileRoute("/collections")({
   head: () => ({
@@ -19,40 +14,8 @@ export const Route = createFileRoute("/collections")({
   component: CollectionsPage,
 });
 
-const items = [
-  { img: monarchAgbada, title: "The Monarch Agbada", cat: "Men • Ceremonial", price: "₦350k+", desc: "Triple-layered hand embroidery with 18k gold thread accents." },
-  { img: oloriSet, title: "The Olori Set", cat: "Women • Wedding", price: "₦280k+", desc: "Minimalist wrap silk with architectural sleeves for the modern queen." },
-  { img: obaKaftan, title: "The Oba Kaftan", cat: "Men • Everyday Regal", price: "Custom", desc: "Structured silhouette crafted from bespoke hand-woven Aso-Oke." },
-  { img: brideCoral, title: "Coral Bride Edition", cat: "Bridal • Traditional", price: "₦420k+", desc: "Coral silk iro & buba paired with a sculpted gele and gold beads." },
-  { img: groomEmerald, title: "Emerald Oba Agbada", cat: "Men • Coronation", price: "₦480k+", desc: "Deep emerald aso-oke with white fila and heirloom brass coral rope." },
-  { img: coupleRoyal, title: "Royal Aso-Ebi Duo", cat: "Couples • Wedding", price: "From ₦650k", desc: "His & hers wedding set in cobalt blue with hand-appliquéd gold motifs." },
-];
-
-const filters = ["All", "Men", "Women", "Bridal", "Couples"];
-
-const models3d = [
-  {
-    src: "/models/agbada-cloth.glb",
-    alt: "3D model of a hand-embroidered Yoruba agbada cloth",
-    title: "The Monarch Agbada — 3D",
-    cat: "Men • Ceremonial • Interactive",
-    desc: "Rotate, zoom and inspect every fold of the embroidery before you commission it.",
-  },
-  {
-    src: "/models/agbada-cloth-model.glb",
-    alt: "3D model of an agbada garment on a form",
-    title: "The Oba Kaftan — 3D",
-    cat: "Men • Everyday Regal • Interactive",
-    desc: "See the drape and structure of the silhouette from every angle, in real time.",
-  },
-  {
-    src: "/models/aso-oke-wedding-dress.glb",
-    alt: "3D model of an aso-oke wedding dress",
-    title: "Coral Bride Edition — 3D",
-    cat: "Bridal • Traditional • Interactive",
-    desc: "Explore the coral silk iro & buba silhouette and gold beadwork in fully rotatable 3D.",
-  },
-];
+const items = collectionItems;
+const filters = collectionFilters;
 
 function CollectionsPage() {
   return (

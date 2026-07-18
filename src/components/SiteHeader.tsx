@@ -7,11 +7,59 @@ const WHATSAPP_DISPLAY = "+234 703 569 6320";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 const links = [
-  { to: "/", label: "Home" },
-  { to: "/collections", label: "Collections" },
-  { to: "/atelier", label: "Atelier" },
-  { to: "/lookbook", label: "Lookbook" },
-  { to: "/contact", label: "Contact" },
+  {
+    to: "/",
+    label: "Home",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="size-5" aria-hidden>
+        <path d="M3 11.5 12 4l9 7.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M5.5 10v9a1 1 0 0 0 1 1H10v-5.5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1V20h3.5a1 1 0 0 0 1-1v-9" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+  {
+    to: "/collections",
+    label: "Collections",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="size-5" aria-hidden>
+        <rect x="3.5" y="4" width="7" height="7" rx="1.2" />
+        <rect x="13.5" y="4" width="7" height="7" rx="1.2" />
+        <rect x="3.5" y="13" width="7" height="7" rx="1.2" />
+        <rect x="13.5" y="13" width="7" height="7" rx="1.2" />
+      </svg>
+    ),
+  },
+  {
+    to: "/atelier",
+    label: "Atelier",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="size-5" aria-hidden>
+        <path d="M12 3 3 8l9 5 9-5-9-5Z" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M3 16l9 5 9-5M3 12l9 5 9-5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+  {
+    to: "/lookbook",
+    label: "Lookbook",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="size-5" aria-hidden>
+        <rect x="3.5" y="4.5" width="17" height="15" rx="1.5" />
+        <path d="M3.5 15.5 8.5 11l3 3 4-4.5 5 6" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="8" cy="8.5" r="1.4" />
+      </svg>
+    ),
+  },
+  {
+    to: "/contact",
+    label: "Contact",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="size-5" aria-hidden>
+        <rect x="3.5" y="5" width="17" height="14" rx="2" />
+        <path d="m4 6.5 8 6.5 8-6.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
 ] as const;
 
 export function SiteHeader() {
@@ -26,7 +74,7 @@ export function SiteHeader() {
         Damas Couture
       </Link>
 
-      <div className="hidden md:flex gap-9 text-[11px] font-medium tracking-[0.25em] uppercase text-white/70">
+      <div className="hidden md:flex gap-9 text-[11px] font-semibold tracking-[0.25em] uppercase text-white/80">
         {links.map((l) => (
           <Link
             key={l.to}
@@ -77,24 +125,49 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="md:hidden fixed inset-x-0 top-[68px] bottom-0 bg-[#0B0E14]/95 backdrop-blur-xl border-t border-white/5 flex flex-col items-center justify-center gap-8 animate-reveal-up">
-          {links.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              onClick={() => setOpen(false)}
-              className="text-2xl font-display italic text-white hover:text-gold-glow"
-            >
-              {l.label}
-            </Link>
-          ))}
-          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="text-xs tracking-[0.3em] uppercase text-gold-glow">
-            Chat on WhatsApp →
-          </a>
-          <a href={TIKTOK_URL} target="_blank" rel="noreferrer" className="text-xs tracking-[0.3em] uppercase text-white/50">
-            Follow on TikTok →
-          </a>
-        </div>
+        <>
+          <button
+            aria-label="Close menu"
+            onClick={() => setOpen(false)}
+            className="md:hidden fixed inset-0 top-[68px] z-40 bg-black/60 backdrop-blur-sm animate-fade-in"
+          />
+          <div className="md:hidden fixed top-[68px] right-0 bottom-0 z-50 w-[78%] max-w-xs bg-[#0B0E14] border-l border-gold-glow/20 shadow-[-20px_0_60px_rgba(0,0,0,0.5)] flex flex-col py-6 px-4 gap-2 animate-drawer-in overflow-y-auto">
+            {links.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                activeOptions={{ exact: true }}
+                onClick={() => setOpen(false)}
+                activeProps={{ className: "bg-gold-glow/15 border-gold-glow/40 text-gold-glow" }}
+                className="flex items-center gap-4 px-5 py-4 rounded-2xl border border-white/10 text-white/90 text-base font-display hover:border-gold-glow/40 hover:text-gold-glow transition-all"
+              >
+                <span className="text-gold-glow">{l.icon}</span>
+                {l.label}
+              </Link>
+            ))}
+
+            <div className="mt-4 pt-4 border-t border-white/10 flex flex-col gap-3">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-center gap-3 px-5 py-3 rounded-2xl bg-gold-glow text-royal-bg font-bold text-xs tracking-[0.2em] uppercase"
+              >
+                Chat on WhatsApp
+              </a>
+              <a
+                href={TIKTOK_URL}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-center gap-3 px-5 py-3 rounded-2xl border border-white/15 text-white/70 text-xs tracking-[0.2em] uppercase hover:text-gold-glow hover:border-gold-glow/40 transition-all"
+              >
+                Follow on TikTok
+              </a>
+            </div>
+          </div>
+        </>
       )}
     </nav>
   );

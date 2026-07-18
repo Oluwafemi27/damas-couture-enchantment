@@ -3,6 +3,7 @@ import atelierHands from "@/assets/atelier-hands.jpg";
 import fabrics from "@/assets/fabrics.jpg";
 import embroideryDetail from "@/assets/embroidery-detail.jpg";
 import founderDaniel from "@/assets/founder-daniel.jpg";
+import { processSteps as steps, services, pricingTiers, fabricLibrary } from "@/data/content";
 
 export const Route = createFileRoute("/atelier")({
   head: () => ({
@@ -15,43 +16,6 @@ export const Route = createFileRoute("/atelier")({
   }),
   component: AtelierPage,
 });
-
-const steps = [
-  { n: "01", t: "Consultation", d: "A private conversation — in-studio, WhatsApp or video — to understand the occasion, palette and personality behind the piece." },
-  { n: "02", t: "Sketch & Mood", d: "Our design lead returns illustrated sketches with alternative silhouettes, fabric swatches and embroidery direction within 72 hours." },
-  { n: "03", t: "Loom & Cut", d: "Aso-oke is hand-woven in Iseyin. Silks and laces are cut on the atelier floor by master pattern-makers." },
-  { n: "04", t: "Embroidery", d: "Between 80 and 240 hours per garment. Gold thread is placed under warm lamplight to catch every glint of the ceremony." },
-  { n: "05", t: "Fittings", d: "Two studio fittings — plus in-home service for Lagos & Abuja clients — refine every drape, dart and finish." },
-  { n: "06", t: "Delivery", d: "Packaged in a bespoke Damas trunk with a lifetime alteration promise. Ready to become an heirloom." },
-];
-
-const services = [
-  { t: "Bridal Suites", d: "Complete bridal wardrobes: engagement, traditional, white wedding and after-party." },
-  { t: "Groom & Fila", d: "Signature agbada, sokoto and hand-sculpted fila caps in your palette." },
-  { t: "Aso-Ebi Coordination", d: "Family and bridal party orders of 10–200 pieces with impeccable colour matching." },
-  { t: "Gele Artistry", d: "Sculpted gele masterclasses and on-the-day styling at your event." },
-  { t: "Corporate & Diplomatic", d: "Refined native wear for embassies, boardrooms and cultural galas." },
-  { t: "Global Delivery", d: "Insured shipping to London, Paris, New York, Dubai and Toronto." },
-];
-
-const pricingTiers = [
-  {
-    name: "Entry-Level",
-    range: "₦10,000 – ₦15,000",
-    desc: "Sewing only. Basic styles with minimal embroidery.",
-  },
-  {
-    name: "Mid-Range",
-    range: "₦18,000 – ₦25,000",
-    desc: "Sewing only. Standard designs with moderate embroidery or monograms.",
-    featured: true,
-  },
-  {
-    name: "Premium (Complete Kaftan)",
-    range: "₦35,000 – ₦80,000+",
-    desc: "When supplying high-quality fabric, with heavy stonework or embroidery.",
-  },
-];
 
 function AtelierPage() {
   return (
@@ -144,12 +108,10 @@ function AtelierPage() {
               alt="Founder of Damas Couture wearing a hand-woven green Aso-Oke agbada and fila cap"
               className="relative z-10 w-full h-full object-cover rounded-3xl ring-1 ring-white/10 shadow-2xl"
             />
-            <div className="absolute -left-6 -bottom-6 md:-left-10 md:-bottom-10 w-40 h-40 neumorph-card p-4 z-20">
-              <div className="w-full h-full border border-gold-glow/25 rounded-xl flex items-center justify-center text-center p-4">
-                <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-gold-glow leading-tight">
-                  Founder &amp; Lead Designer
-                </p>
-              </div>
+            <div className="absolute -right-6 top-6 md:-right-10 md:top-10 px-5 py-3 neumorph-card z-20">
+              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-gold-glow leading-tight whitespace-nowrap">
+                Founder &amp; Lead Designer
+              </p>
             </div>
           </div>
         </div>
@@ -164,13 +126,7 @@ function AtelierPage() {
           <span className="text-[10px] tracking-[0.35em] uppercase text-gold-glow font-bold">Materials</span>
           <h2 className="font-display text-3xl md:text-4xl mt-4 mb-6">A library of noble cloth.</h2>
           <ul className="space-y-3 text-white/70">
-            {[
-              "Iseyin-woven Aso-Oke — indigo, burgundy, ivory & 24 more shades",
-              "Italian dupion & silk-cotton blends",
-              "French guipure lace and Swiss voile",
-              "18k gold-plated embroidery thread",
-              "Coral, brass & river-pearl beadwork",
-            ].map((f) => (
+            {fabricLibrary.map((f) => (
               <li key={f} className="flex gap-3 items-center">
                 <span className="size-1.5 rounded-full bg-gold-glow" />
                 <span>{f}</span>

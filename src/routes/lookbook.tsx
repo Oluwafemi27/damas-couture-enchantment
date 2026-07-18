@@ -1,15 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import heroAgbada from "@/assets/hero-agbada.jpg";
-import monarchAgbada from "@/assets/monarch-agbada.jpg";
-import oloriSet from "@/assets/olori-set.jpg";
-import obaKaftan from "@/assets/oba-kaftan.jpg";
-import brideCoral from "@/assets/bride-coral.jpg";
-import groomEmerald from "@/assets/groom-emerald.jpg";
-import coupleRoyal from "@/assets/couple-royal.jpg";
-import embroideryDetail from "@/assets/embroidery-detail.jpg";
-import fabrics from "@/assets/fabrics.jpg";
-import atelierHands from "@/assets/atelier-hands.jpg";
 import { TIKTOK_URL } from "@/components/SiteHeader";
+import { galleryItems } from "@/data/content";
 
 export const Route = createFileRoute("/lookbook")({
   head: () => ({
@@ -23,18 +14,7 @@ export const Route = createFileRoute("/lookbook")({
   component: LookbookPage,
 });
 
-const gallery = [
-  { img: brideCoral, label: "Coral Bride • Studio" , span: "row-span-2" },
-  { img: groomEmerald, label: "Emerald Oba" },
-  { img: monarchAgbada, label: "Monarch Agbada" },
-  { img: coupleRoyal, label: "Royal Aso-Ebi", span: "col-span-2" },
-  { img: oloriSet, label: "Olori Set" },
-  { img: obaKaftan, label: "Oba Kaftan" , span: "row-span-2"},
-  { img: embroideryDetail, label: "Gold Thread Detail" },
-  { img: heroAgbada, label: "Indigo Regalia" },
-  { img: fabrics, label: "Fabric Library" },
-  { img: atelierHands, label: "Atelier Hands" , span: "col-span-2"},
-];
+const gallery = galleryItems;
 
 function LookbookPage() {
   return (
